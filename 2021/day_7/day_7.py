@@ -21,7 +21,7 @@ def get_fuel_consumption(positions, center):
 
 
 with open("input_day_7.txt", "r") as file:
-    positions = np.array([int(nr) for nr in file.read().split(',')])
+    positions = np.array([int(nr) for nr in file.read().split(",")])
 
 min_fuel = None
 for i in tqdm(range(max(positions)), total=max(positions), ascii=True, ncols=70):

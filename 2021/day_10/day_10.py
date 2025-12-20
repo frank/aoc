@@ -2,40 +2,20 @@ import statistics
 
 rows = []
 with open("input_day_10.txt", "r") as file:
-    for line in (l.rstrip('\n') for l in file.readlines()):
+    for line in (l.rstrip("\n") for l in file.readlines()):
         rows.append(line)
 
-opening_chars = '([{<'
-closing_chars = ')]}>'
+opening_chars = "([{<"
+closing_chars = ")]}>"
 all_chars = opening_chars + closing_chars
 
-match = {
-    ")": "(",
-    "]": "[",
-    "}": "{",
-    ">": "<"
-}
+match = {")": "(", "]": "[", "}": "{", ">": "<"}
 
-points = {
-    ")": 3,
-    "]": 57,
-    "}": 1197,
-    ">": 25137
-}
+points = {")": 3, "]": 57, "}": 1197, ">": 25137}
 
-inv_match = {
-    "(": ")",
-    "[": "]",
-    "{": "}",
-    "<": ">"
-}
+inv_match = {"(": ")", "[": "]", "{": "}", "<": ">"}
 
-inv_points = {
-    ")": 1,
-    "]": 2,
-    "}": 3,
-    ">": 4
-}
+inv_points = {")": 1, "]": 2, "}": 3, ">": 4}
 
 score = 0
 closing_rows = []

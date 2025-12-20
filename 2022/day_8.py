@@ -16,9 +16,9 @@ def part_one(trees: np.ndarray):
     visibility_map[:, -1] = 1
     for r, c in product(range(1, trees.shape[0] - 1), range(1, trees.shape[1] - 1)):
         n = np.all(trees[:r, c] < trees[r, c])
-        s = np.all(trees[r + 1:, c] < trees[r, c])
+        s = np.all(trees[r + 1 :, c] < trees[r, c])
         e = np.all(trees[r, :c] < trees[r, c])
-        w = np.all(trees[r, c + 1:] < trees[r, c])
+        w = np.all(trees[r, c + 1 :] < trees[r, c])
         visible = n or s or w or e
         if visible:
             visibility_map[r, c] = 1
@@ -38,9 +38,9 @@ def part_two(trees: np.ndarray):
     scenic_map = np.zeros_like(trees)
     for r, c in product(range(1, trees.shape[0] - 1), range(1, trees.shape[1] - 1)):
         n = line_of_sight(trees[:r, c][::-1], trees[r, c])
-        s = line_of_sight(trees[r + 1:, c], trees[r, c])
+        s = line_of_sight(trees[r + 1 :, c], trees[r, c])
         e = line_of_sight(trees[r, :c][::-1], trees[r, c])
-        w = line_of_sight(trees[r, c + 1:], trees[r, c])
+        w = line_of_sight(trees[r, c + 1 :], trees[r, c])
         scenic_map[r, c] = n * s * e * w
     print(np.max(scenic_map))
 

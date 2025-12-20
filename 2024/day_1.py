@@ -1,6 +1,7 @@
 import numpy as np
 from collections import Counter
 
+
 def get_data() -> np.ndarray:
     with open("inputs/day_1.txt", "r") as file:
         lists = file.read()

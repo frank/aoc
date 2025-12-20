@@ -15,7 +15,7 @@ def adj_finder(matrix, position):
 
 field = []
 with open("text_input.txt", "r") as file:
-    for line in (l.rstrip('\n') for l in file.readlines()):
+    for line in (l.rstrip("\n") for l in file.readlines()):
         field.append([int(n) for n in line])
 
 field = np.array(field)

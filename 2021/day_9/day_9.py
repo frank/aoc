@@ -2,7 +2,7 @@ import numpy as np
 
 height_map = []
 with open("input_day_9.txt", "r") as file:
-    for line in (l.rstrip('\n') for l in file.readlines()):
+    for line in (l.rstrip("\n") for l in file.readlines()):
         height_map.append(np.array([int(n) for n in line]))
 
 height_map = np.array(height_map)
@@ -11,22 +11,22 @@ height_map = np.array(height_map)
 up = height_map.copy()
 up[1:] -= up[:-1]
 up[0] = -1
-up = (up < 0)
+up = up < 0
 
 down = height_map.copy()
 down[:-1] -= down[1:]
 down[-1] = -1
-down = (down < 0)
+down = down < 0
 
 left = height_map.copy()
 left[:, 1:] -= left[:, :-1]
 left[:, 0] = -1
-left = (left < 0)
+left = left < 0
 
 right = height_map.copy()
 right[:, :-1] -= right[:, 1:]
 right[:, -1] = -1
-right = (right < 0)
+right = right < 0
 
 # find minima
 minima = up & down & left & right

@@ -9,7 +9,7 @@ all_readings = []
 
 with open("input_day_3.txt", "r") as file:
     for line in file.readlines():
-        all_readings.append(np.array([int(c) for c in line.rstrip('\n')]))
+        all_readings.append(np.array([int(c) for c in line.rstrip("\n")]))
 
 all_readings = np.array(all_readings)
 

@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def get_data():
     with open("inputs/day_2.txt", "r") as file:
         data = file.read()

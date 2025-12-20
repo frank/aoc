@@ -21,7 +21,9 @@ def draw_segment(segment_map, segment):
         for p in ((x, p1[1]) for x in range(min(p1[0], p2[0]), max(p1[0], p2[0]) + 1)):
             segment_map[p[0], p[1]] += 1
     else:
-        for p in zip(get_inclusive_range(p1[0], p2[0]), get_inclusive_range(p1[1], p2[1])):
+        for p in zip(
+            get_inclusive_range(p1[0], p2[0]), get_inclusive_range(p1[1], p2[1])
+        ):
             segment_map[p[0], p[1]] += 1
 
     return segment_map
@@ -30,13 +32,12 @@ def draw_segment(segment_map, segment):
 segments = []
 
 with open("input_day_5.txt", "r") as file:
-    for line in (l.rstrip('\n') for l in file.readlines()):
+    for line in (l.rstrip("\n") for l in file.readlines()):
         # get points
-        p1, p2 = line.split(' -> ')
-        segment = np.array([
-            [int(c) for c in p1.split(',')],
-            [int(c) for c in p2.split(',')]
-        ])
+        p1, p2 = line.split(" -> ")
+        segment = np.array(
+            [[int(c) for c in p1.split(",")], [int(c) for c in p2.split(",")]]
+        )
 
         # only keep vertical segments
         segments.append(segment)

@@ -24,7 +24,9 @@ def get_remaining_keys(codes, cypher):
             keys[3] = code
         elif len(code) == 5 and (cypher[4] - cypher[1]).issubset(code):
             keys[5] = code
-        elif len(code) == 6 and (bottomleft_corner | (cypher[4] - cypher[7])).issubset(code):
+        elif len(code) == 6 and (bottomleft_corner | (cypher[4] - cypher[7])).issubset(
+            code
+        ):
             keys[6] = code
         elif len(code) == 6 and (cypher[4]).issubset(code):
             keys[9] = code
@@ -32,7 +34,7 @@ def get_remaining_keys(codes, cypher):
 
 
 def translate_digits(code, cypher):
-    digits = ''
+    digits = ""
     for d in code:
         digits += str(next(key for key, value in cypher.items() if value == set(d)))
     return int(digits)
@@ -40,11 +42,8 @@ def translate_digits(code, cypher):
 
 signals = []
 with open("input_day_8.txt", "r") as file:
-    for code, digits in (line.rstrip('\n').split(' | ') for line in file.readlines()):
-        signal = {
-            "code": code.split(),
-            "digits": digits.split()
-        }
+    for code, digits in (line.rstrip("\n").split(" | ") for line in file.readlines()):
+        signal = {"code": code.split(), "digits": digits.split()}
         signals.append(signal)
 
 count = 0

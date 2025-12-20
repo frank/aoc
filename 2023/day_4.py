@@ -2,8 +2,12 @@ def get_data() -> list[list[set[int]]]:
     assignments = []
     with open("inputs/day_4.txt", "r") as file:
         for line in file.readlines():
-            assignments.append([set(range(int(s.split("-")[0]), int(s.split("-")[1]) + 1))
-                                for s in line.rstrip("\n").split(",")])
+            assignments.append(
+                [
+                    set(range(int(s.split("-")[0]), int(s.split("-")[1]) + 1))
+                    for s in line.rstrip("\n").split(",")
+                ]
+            )
     return assignments
 
 

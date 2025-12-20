@@ -21,7 +21,9 @@ def get_data() -> tuple[list[deque], list[tuple[int]]]:
         instructions = []
         remove_text = str.maketrans("", "", string.ascii_lowercase)
         for i in range(separator + 1, len(lines)):
-            numbers = [int(n) for n in lines[i].rstrip("\n").translate(remove_text).split()]
+            numbers = [
+                int(n) for n in lines[i].rstrip("\n").translate(remove_text).split()
+            ]
             numbers[1] -= 1
             numbers[2] -= 1
             instructions.append(tuple(numbers))

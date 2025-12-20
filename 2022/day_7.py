@@ -62,7 +62,6 @@ def get_data() -> list[tuple[str]]:
         ls_outputs = []
         for i in range(len(lines)):
             if lines[i][0] == "$":
-
                 if parsing_ls:
                     instructions.append(("ls", ls_outputs))
                     parsing_ls = False
