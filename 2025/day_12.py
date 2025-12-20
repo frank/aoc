@@ -52,21 +52,9 @@ def part_one(data):
         if n_cells >= cells_needed:
             result += 1
 
-    print(f"excluded: {len(boxes) - result} / {len(boxes)}")
-
     print("Part One:", result, end=" ")
     if TEST:
         print("[SUCCESS]" if result == 2 else "[FAILURE]")
-    else:
-        print()
-
-
-def part_two(data):
-    result = 0
-    ...
-    print("Part Two:", result, end=" ")
-    if TEST:
-        print("[SUCCESS]" if result == 1 else "[FAILURE]")
     else:
         print()
 
@@ -75,4 +63,3 @@ if __name__ == "__main__":
     data = get_data()
     data = process_data(data)
     part_one(data)
-    # part_two(data)
